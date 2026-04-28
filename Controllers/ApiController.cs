@@ -4,16 +4,18 @@ namespace WebApplication1.Controllers;
 
 
 [ApiController]
-[Route("test/[action]")]
+[Route("[controller]/[action]")]
 public class ApiController: ControllerBase
 {
-    //[Route("/get")]
+    //[Route("gett")]
+    //[Route("get-all")]
     public string Get()
     {
         return "Hellw from controller";
     }
 
     //[Route("/get2")]
+
     public string Get2()
     {
         return "Hellw from controller2";
@@ -25,10 +27,17 @@ public class ApiController: ControllerBase
         return "Hellw from controller3";
     }
 
-    public int Getid(int id)
+
+    //[HttpGet("books/{id}")]
+    public string Getid(int id, int authorId, string num )
     {
-        return id;
+        return "Hello book id " + id + "\n" +"AuthorID " + authorId + "\n" + "num " +num;
     }
 
+    [HttpGet("search")]
+    public string search(int id, int authorId)
+    {
+        return "Hello book id " + id + "\n" + "AuthorID " + authorId ;
+    }
 
 }
