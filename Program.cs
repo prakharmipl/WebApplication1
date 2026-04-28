@@ -23,4 +23,16 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.Use(
+    async (context,next )=> { 
+        await context.Response.WriteAsync("Hello from m1  \n");
+        next();
+        //await context.Response.WriteAsync("Hello from m1  2 \n");
+    }
+    );
+
+app.Run(
+    async context => await context.Response.WriteAsync("Hello from Run2 \n")
+    
+    );
 app.Run();

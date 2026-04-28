@@ -22,6 +22,13 @@ public class ApiController: ControllerBase
     //[Route("/notget")]
     public string Notget()
     {
-        return "Hellw from controller2";
+        return "Hellw from controller3";
     }
+
+    public int Getid(int id)
+    {
+        return id;
+    }
+
+
 }
