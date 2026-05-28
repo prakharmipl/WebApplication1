@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Model;
 
 namespace WebApplication1.Controllers;
 
 
 [ApiController]
-[Route("[controller]/[action]")]
+[Route("[controller]")]
 public class ApiController: ControllerBase
 {
     //[Route("gett")]
@@ -21,14 +22,14 @@ public class ApiController: ControllerBase
         return "Hellw from controller2";
     }
 
-    //[Route("/notget")]
+    [Route("notget")]
     public string Notget()
     {
         return "Hellw from controller3";
     }
 
-
-    //[HttpGet("books/{id}")]
+    //by default id is string
+    [HttpGet("books/{id:alpha}")]
     public string Getid(int id, int authorId, string num )
     {
         return "Hello book id " + id + "\n" +"AuthorID " + authorId + "\n" + "num " +num;
@@ -39,5 +40,19 @@ public class ApiController: ControllerBase
     {
         return "Hello book id " + id + "\n" + "AuthorID " + authorId ;
     }
+
+    [HttpGet("customSearch")]
+    public IActionResult customSearch( string countries)
+    {
+        return Ok(countries);
+    }
+
+    [HttpPost("CountrySearch")]
+    public IActionResult customSearch(CountryModel countries)
+    {
+        return Ok(countries);
+    }
+
+
 
 }
