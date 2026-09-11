@@ -5,11 +5,15 @@ namespace WebApplication1.Repository
 {
     public interface IProductRepository
     {
-        string GetProductById(int id);
+        ProductModel GetProductById(int id);
         List<ProductModel> GetProducts();
 
         string addProduct(string name);
-            
+
+        public ProductModel updateProduct(ProductModel model);
+
+
+
     }
-        
+
 }

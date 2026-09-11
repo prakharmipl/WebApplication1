@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Model;
 using WebApplication1.Repository;
 
 namespace WebApplication1.Controllers
@@ -16,14 +17,22 @@ namespace WebApplication1.Controllers
             _productRepository = productRepository;
         }
 
-        public IActionResult UpdateProduct()
+        
+
+        public ProductModel UpdateProduct(ProductModel model)
         {
 
-            var products = _productRepository.GetProducts();
+
+
+            var products = _productRepository.GetProductById(model.Id);
 
 
 
-            return View();
+
+
+
+
+            return products;
         }
 
         [HttpPost]
